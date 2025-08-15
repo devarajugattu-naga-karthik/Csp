@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - Regional Treasures</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Regional Treasures</h1>
+            <p>Uniting Buyers and Sellers of Cultural Heritage</p>
+        </div>
+    </header>
+
+    <section id="auth" class="form-section">
+        <h2 id="auth-title">Login</h2>
+
+        <!-- Login Form -->
+        <form id="login-form" method="POST">
+            <div class="form-group">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signup-form" method="POST" style="display: none;">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" name="name" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="auth-button">Sign Up</button>
+        </form>
+
+        <p id="toggle-link">
+            Don't have an account? <a href="#" onclick="toggleForms('signup')">Sign Up</a> | Already have an account? <a href="#" onclick="toggleForms('login')">Login</a>
+        </p>
+    </section>
+
+    <footer id="contact">
+        <p>Contact Us: support@regionaltreasures.com</p>
+        <p>Follow us on social media for updates on new products and artisans</p>
+    </footer>
+
+    <script>
+        // Retrieve users from localStorage or initialize an empty array
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Toggle between Login and Sign Up forms
+        function toggleForms(formType) {
+            if (formType === 'signup') {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('signup-form').style.display = 'block';
+                document.getElementById('auth-title').textContent = 'Sign Up';
+            } else {
+                document.getElementById('login-form').style.display = 'block';
+                document.getElementById('signup-form').style.display = 'none';
+                document.getElementById('auth-title').textContent = 'Login';
+            }
+        }
+
+        // Handle Sign Up
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+
+            // Name validation: letters and spaces only
+            const namePattern = /^[A-Za-z\s]+$/;
+            if (!namePattern.test(name)) {
+                alert('Please enter a valid name (letters and spaces only).');
+                return;
+            }
+
+            // Email validation
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Check if the user already exists
+            if (users.some(user => user.email === email)) {
+                alert('Email already exists.');
+                return;
+            }
+
+            // Add the new user
+            users.push({ name, email, password });
+            localStorage.setItem('users', JSON.stringify(users));  // Save updated users to localStorage
+
+            alert('Registration successful');
+            toggleForms('login');  // Redirect to login form after successful registration
+        });
+
+        // Handle Login
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            // Check if the email and password match
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                alert('Login successful');
+                window.location.href = "home.html"; // Redirect to the home page
+            } else {
+                alert('Incorrect email or password');
+            }
+        });
+    </script>
+</body>
+</html>
