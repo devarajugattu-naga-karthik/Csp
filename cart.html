@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+  <link rel="stylesheet" href="products.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="home.html"><img src="logo.jpg" width="50px" /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown" onclick="menutoggl()">
+              <a class="active">Products <i class="fas fa-caret-down"></i></a>
+              <ul id="inneritems">
+                <li><a href="sweets-product.html">Bandar Sweets</a></li>
+                <li><a href="saree-product.html">Kalamkari Sarees</a></li>
+                <li><a href="seasonal-product.html">Mangoes</a></li>
+                <li><a href="1gram-product.html">1-Gram Jewelry</a></li>
+                <li><a href="carpets-product.html">Carpets</a></li>
+                <li><a href="toys-product.html">Kondapalli Toys</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">Sellers & Shop Info</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i></a>
+      </div>
+    </div>
+
+    <!-- Cart Section -->
+    <section id="cart" class="cart-section">
+      <h2>Your Cart</h2>
+      <div id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+        <p>Your cart is empty!</p>
+      </div>
+      <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </section>
+
+    <!-- Checkout Section (hidden by default) -->
+    <section id="checkout" class="checkout-section" style="display:none;">
+      <h2>Checkout</h2>
+      <form id="checkout-form" onsubmit="completeCheckout(event)">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number:</label>
+          <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Product Quantity (kg):</label>
+          <input type="number" id="quantity" name="quantity" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Shipping Address:</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+
+    <!-- Order Confirmation Section (hidden by default) -->
+    <section id="order-status" class="order-status-section" style="display:none;">
+      <h2>Order Confirmation</h2>
+      <p>Your order has been placed successfully! Here are the details:</p>
+      <p id="order-summary"></p>
+      <button onclick="goHome()">Back to Home</button>
+    </section>
+
+    <script>
+      // Function to display the cart content
+      function displayCart() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartItemsDiv = document.getElementById('cart-items');
+
+        if (cart.length === 0) {
+          cartItemsDiv.innerHTML = '<p>Your cart is empty!</p>';
+        } else {
+          let cartHTML = '<ul>';
+          let totalPrice = 0;
+
+          cart.forEach((item, index) => {
+            cartHTML += `
+              <li>
+                ${item.name} - ₹${item.price} x ${item.quantity}
+                <button onclick="removeFromCart(${index})">Remove</button>
+              </li>
+            `;
+            totalPrice += item.price * item.quantity;
+          });
+
+          cartHTML += `</ul><p><strong>Total Price: ₹${totalPrice}</strong></p>`;
+          cartItemsDiv.innerHTML = cartHTML;
+        }
+      }
+
+      // Function to remove items from the cart
+      function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+      }
+
+      // Display the cart on page load
+      window.onload = displayCart;
+
+      // Function to show checkout section
+      function proceedToCheckout() {
+        document.getElementById('cart').style.display = 'none';
+        document.getElementById('checkout').style.display = 'block';
+      }
+
+      // Function to handle the order completion
+      function completeCheckout(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const quantity = document.getElementById('quantity').value;
+        const address = document.getElementById('address').value;
+        const items = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Validate name
+        if (!/^[A-Za-z\s]+$/.test(name)) {
+          alert("Please enter a valid name.");
+          return;
+        }
+
+        // Validate email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          alert("Please enter a valid email.");
+          return;
+        }
+
+        // Validate mobile number (10-digit format)
+        if (!/^\d{10}$/.test(mobile)) {
+          alert("Please enter a valid 10-digit mobile number.");
+          return;
+        }
+
+        // Create the order summary with item costs
+        let orderSummary = `
+          Name: ${name}<br>
+          Email: ${email}<br>
+          Mobile: ${mobile}<br>
+          Address: ${address}<br><br>
+          <strong>Order Details:</strong><br>
+        `;
+
+        let totalCost = 0;
+        items.forEach(item => {
+          const itemCost = item.price * item.quantity;
+          orderSummary += `${item.name} - ₹${item.price} x ${item.quantity} = ₹${itemCost}<br>`;
+          totalCost += itemCost;
+        });
+
+        orderSummary += `<br><strong>Total Cost: ₹${totalCost}</strong>`;
+
+        // Display the order confirmation
+        document.getElementById('checkout').style.display = 'none';
+        document.getElementById('order-status').style.display = 'block';
+        document.getElementById('order-summary').innerHTML = orderSummary;
+
+        // Clear the cart after order completion
+        localStorage.removeItem('cart');
+        displayCart();
+      }
+
+      // Function to redirect back to the home page
+      function goHome() {
+        window.location.href = 'home.html';
+      }
+    </script>
+</body>
+</html>

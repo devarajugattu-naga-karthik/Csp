@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Details - Cizeal Stoned Necklace</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="home.html"> <img src="logo.jpg" width="50px" /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown" onclick="menutoggl()"><a class="active">Products
+              <i class="fas fa-caret-down"></i>
+            </a>
+              <ul id="inneritems">
+                <li><a href="sweets-product.html">Bandar sweets</a></li>
+                <li><a href="saree-product.html">Kalamkari Sarees</a></li>
+                <li><a href="seasonal-product.html">Mangoes</a></li>
+                <li><a href="1gram-product.html">1gram jewelry</a></li>
+                <li><a href="Carpets-product.html">Carpets</a></li>
+                <li><a href="toys-product.html">Kondapalli Toys</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">Sellers & Shop Info</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size:24px;"></i></a>
+        <img src="menu1.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+    </div>
+
+    <!-- ---------single product details-------- -->
+    <div class="small-container single-product">
+      <div class="row">
+        <div class="col-2">
+          <img src="cizeal.jpg" width="100%" id="productImg">
+        </div>
+
+        <div class="col-2">
+          <p>Home / Jewelry</p>
+          <h1>Cizeal Stoned Necklace</h1>
+          <h4>1500/rs</h4>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <p>3.5 stars out of 5</p><br>
+          <ul>
+            <p><b>About this item</b><br>
+              The Cizeal Stoned Necklace is a stunning piece, featuring high-quality stones set in an intricate design, perfect for elevating any outfit.
+            </p>
+            <li>&#9679; Crafted with precision and high-quality stones.</li>
+            <li>&#9679; Suitable for both casual and festive occasions.</li>
+            <li>&#9679; Stylish and durable for long-lasting use.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------footer------ -->
+    <!-- -------js for toggle menu----- -->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      var MenuItem = document.getElementById("inneritems");
+      MenuItems.style.maxHeight = "0px";
+
+      function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+          MenuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+
+      function menutoggl(){
+        if(MenuItem.style.display == "block")
+        {
+          MenuItem.style.display = "none";
+        }
+        else
+        {
+          MenuItem.style.display = "block";
+        }
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kondapalli Toys</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="home.html"><img src="logo.jpg" width="50px"></a>
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown" onclick="menutoggl()">
+            <a class="active">Products <i class="fas fa-caret-down"></i></a>
+            <ul id="inneritems">
+              <li><a href="toys-product.html">Kondapalli Toys</a></li>
+              <li><a href="sweets-product.html">Bandar Sweets</a></li>
+              <li><a href="saree-product.html">Kalamkari</a></li>
+              <li><a href="carpets-product.html">Carpets</a></li>
+              <li><a href="1gram-product.html">Jewellery</a></li>
+              <li><a href="seasonal-product.html">Seasonal Fruits</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">Sellers Info</a></li>
+        </ul>
+      </nav>
+      <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i></a>
+      <img src="menu1.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+  </div>
+
+  <section id="products" class="product-section">
+    <h2>Kondapalli Toys</h2>
+    <div class="product-container">
+      <!-- Product Card 1: Toy Pallaki Set -->
+      <div class="product-card">
+        <a href="toypallaki.html">
+          <img src="pallaki.jpg" alt="Toy Pallaki Set" width="150px" height="150px" />
+          <h4>Toy Pallaki Set</h4>
+          <p>Price: 350</p>
+        </a>
+        <button onclick="addToCart('Toy Pallaki Set', 350)">Add to Cart</button>
+      </div>
+      
+      <!-- Product Card 2: Bullock Cart Set -->
+      <div class="product-card">
+        <a href="bullockcart.html">
+          <img src="bullockcart.jpeg" alt="Bullock Cart Set" width="150px" height="150px" />
+          <h4>Bullock Cart Set</h4>
+          <p>Price: 450</p>
+        </a>
+        <button onclick="addToCart('Bullock Cart Set', 450)">Add to Cart</button>
+      </div>
+  
+      <!-- Product Card 3: Marriage Set -->
+      <div class="product-card">
+        <a href="marriageset.html">
+          <img src="marriage set.jpg" alt="Marriage Set" width="150px" height="150px" />
+          <h4>Marriage Set</h4>
+          <p>Price: 550</p>
+        </a>
+        <button onclick="addToCart('Marriage Set', 550)">Add to Cart</button>
+      </div>
+  
+      <!-- Product Card 4: Bommalakoluvu Set -->
+      <div class="product-card">
+        <a href="bomalakoluvuset.html">
+          <img src="bomalakoluvuset.jpeg" alt="Bommalakoluvu Set" width="150px" height="150px" />
+          <h4>Bommalakoluvu Set</h4>
+          <p>Price: 600</p>
+        </a>
+        <button onclick="addToCart('Bommalakoluvu Set', 600)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+ 
+  <!-- JS for Toggle Menu -->
+  <script>
+    var MenuItems = document.getElementById("MenuItems");
+    var MenuItem = document.getElementById("inneritems");
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (MenuItems.style.maxHeight === "0px") {
+        MenuItems.style.maxHeight = "200px";
+      } else {
+        MenuItems.style.maxHeight = "0px";
+      }
+    }
+
+    function menutoggl() {
+      if (MenuItem.style.display === "block") {
+        MenuItem.style.display = "none";
+      } else {
+        MenuItem.style.display = "block";
+      }
+    }
+
+    // Add to Cart function
+    function addToCart(productName, price) {
+      // Get the current cart from localStorage, or initialize an empty array if none exists
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Create a new product object
+      const product = {
+        name: productName,
+        price: price,
+        quantity: 1
+      };
+
+      // Add the new product to the cart array
+      cart.push(product);
+
+      // Save the updated cart back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Redirect to the cart page
+      window.location.href = 'cart.html';
+    }
+  </script>
+</body>
+</html>

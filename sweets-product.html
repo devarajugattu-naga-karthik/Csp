@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bandar Sweets</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="home.html"><img src="logo.jpg" width="50px"></a>
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a href="home.html">Home</a></li>
+          <li class="dropdown" onclick="menutoggl()">
+            <a class="active">Products <i class="fas fa-caret-down"></i></a>
+            <ul id="inneritems">
+              <li><a href="toys-product.html">Kondapalli Toys</a></li>
+              <li><a href="sweets-product.html">Bandar Sweets</a></li>
+              <li><a href="saree-product.html">Kalamkari</a></li>
+              <li><a href="carpets-product.html">Carpets</a></li>
+              <li><a href="1gram-product.html">Jewellery</a></li>
+              <li><a href="seasonal-product.html">Seasonal Fruits</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html">Sellers Info</a></li>
+          
+        </ul>
+      </nav>
+      <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i></a>
+      <img src="menu1.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+  </div>
+
+  <section id="products" class="product-section">
+    <h2>All Bandar Sweets</h2>
+    <div class="product-container">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <a href="bandar_laddu.html">
+          <img src="bandar laddu.jpg" alt="Bandar Laddu" width="150px" height="150px" />
+          <h4>Bandar Laddu</h4>
+          <p>Price: 250</p>
+        </a>
+        <button onclick="addToCart('Bandar Laddu', 250)">Add to Cart</button>
+      </div>
+      
+      <!-- Product Card 2 -->
+      <div class="product-card">
+        <a href="bandar_halwa.html">
+          <img src="bandar_halwa.jpg" alt="Bandar Halwa" width="150px" height="150px" />
+          <h4>Bandar Halwa</h4>
+          <p>Price: 300</p>
+        </a>
+        <button onclick="addToCart('Bandar Halwa', 300)">Add to Cart</button>
+      </div>
+  
+      <!-- Product Card 3 -->
+      <div class="product-card">
+        <a href="badam_milk.html">
+          <img src="badam milk.avif" alt="Bandar Apsara Badam Milk" width="150px" height="150px" />
+          <h4>Bandar Apsara Badam Milk</h4>
+          <p>Price: 150</p>
+        </a>
+        <button onclick="addToCart('Bandar Apsara Badam Milk', 150)">Add to Cart</button>
+      </div>
+  
+      <!-- Product Card 4 -->
+      <div class="product-card">
+        <a href="kaju.html">
+          <img src="kaju.jpg" alt="Kaju Chikki" width="150px" height="150px" />
+          <h4>Kaju Chikki</h4>
+          <p>Price: 200</p>
+        </a>
+        <button onclick="addToCart('Kaju Chikki', 200)">Add to Cart</button>
+      </div>
+      
+      <!-- Product Card 5 -->
+      <div class="product-card">
+        <a href="kajupistha.html">
+          <img src="kajupistha.jpg" alt="Kaju Pistha Badam Milk" width="150px" height="150px" />
+          <h4>Kajju Pistha Badam Milk</h4>
+          <p>Price: 180</p>
+        </a>
+        <button onclick="addToCart('Kajju Pistha Badam Milk', 180)">Add to Cart</button>
+      </div>
+      
+      <!-- Product Card 6 (Bandar Mithai) -->
+      <div class="product-card">
+        <a href="bandarmithai.html">
+          <img src="bandarmithai.jpg" alt="Bandar Mithai" width="150px" height="150px" />
+          <h4>Bandar Mithai</h4>
+          <p>Price: 220</p>
+        </a>
+        <button onclick="addToCart('Bandar Mithai', 220)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <hr>
+    <div class="copyright text-center">
+      <h5><a href="#">🌐</a> © 2024 Regional Treasures.com</h5>
+    </div>
+  </footer>
+
+  <!-- JS for Toggle Menu -->
+  <script>
+    var MenuItems = document.getElementById("MenuItems");
+    var MenuItem = document.getElementById("inneritems");
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+      if (MenuItems.style.maxHeight === "0px") {
+        MenuItems.style.maxHeight = "200px";
+      } else {
+        MenuItems.style.maxHeight = "0px";
+      }
+    }
+
+    function menutoggl() {
+      if (MenuItem.style.display === "block") {
+        MenuItem.style.display = "none";
+      } else {
+        MenuItem.style.display = "block";
+      }
+    }
+
+    // Add to Cart function
+    function addToCart(productName, price) {
+      // Get the current cart from localStorage, or initialize an empty array if none exists
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Create a new product object
+      const product = {
+        name: productName,
+        price: price,
+        quantity: 1
+      };
+
+      // Add the new product to the cart array
+      cart.push(product);
+
+      // Save the updated cart back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Redirect to the cart page
+      window.location.href = 'cart.html';
+    }
+  </script>
+
+</body>
+</html>

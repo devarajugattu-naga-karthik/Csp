@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regional Treasures: Uniting Buyers and Sellers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                
+                    <a href="home.html"><img src="logo.jpg" width="50px" /></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="home.html">Home</a></li>
+                        <li class="dropdown" onclick="menutoggl()">
+                            <a class="active">Products <i class="fas fa-caret-down"></i></a>
+                            <ul id="inneritems">
+                                <li><a href="sweets-product.html">Bandar Sweets</a></li>
+                                <li><a href="saree-product.html">Kalamkari Sarees</a></li>
+                                <li><a href="seasonal-product.html">Mangoes</a></li>
+                                <li><a href="1gram-product.html">1-Gram Jewelry</a></li>
+                                <li><a href="carpets-product.html">Carpets</a></li>
+                                <li><a href="toys-product.html">Kondapalli Toys</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="about.html">Sellers & Shop Info</a></li>
+                       <li><a href="index.html">login</a>
+                    </ul>
+                </nav>
+                <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i></a>
+                <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Regional Treasures <br />Uniting Buyers and Sellers</h1>
+                    <p>"Discover unique, handcrafted treasures and regional products. <br />Preserve cultural traditions and <br />empower local sellers."</p>
+                    <a href="#" class="btn">Explore Now &#10140;</a>
+                </div>
+                <div class="col-2">
+                    <img src="image1.jpeg" alt="Featured Image" width="500px" height="500px" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Categories Section -->
+    <div class="small-container">
+        <h2 class="title">Categories</h2>
+        <div class="row">
+          <div class="col-4">
+            <a href="saree-product.html" target="_blank"><img src="saree.jpeg" alt="" width="150px" height="150px"></a>
+            <h4>Kalamkari Sarees</h4>
+            <p><a href="saree-product.html">Explore more...</a></p>    
+          </div>
+          <div class="col-4">
+            <a href="1gram-product.html" target="_blank"><img src="1 gram.webp" alt="" width="150px" height="150px"></a>
+            <h4>1 Gram Gold Imitation Jewelry</h4>
+            <p><a href="1gram-product.html">Explore more...</a></p>
+          </div>
+          <div class="col-4">
+            <a href="toys-product.html" target="_blank"><img src="kondapalli boma.jpeg" alt="" width="150px" height="150px"></a>
+            <h4>Kondapalli Toys</h4>
+            <p><a href="toys-product.html">Explore more...</a></p>
+          </div>
+          <div class="col-4">
+            <a href="seasonal-product.html" target="_blank"><img src="mangoes.jpeg" alt="" width="150px" height="150px"></a>
+            <h4>Nuzividu Mangoes</h4>
+            <p><a href="seasonal-product.html">Explore more...</a></p>
+          </div>
+          <div class="col-4">
+            <a href="carpets-product.html" target="_blank"><img src="carpet.jpeg" alt="" width="150px" height="150px"></a>
+            <h4>Eluru Carpets</h4>
+            <p><a href="carpets-product.html">Explore more...</a></p>
+          </div>
+          <div class="col-4">
+            <a href="sweets-product.html" target="_blank"><img src="sweet.jpeg" alt="" width="150px" height="150px"></a>
+            <h4>Bandar Sweets</h4>
+            <p><a href="sweets-product.html">Explore more...</a></p>
+          </div>
+        </div>
+      </div>
+  
+
+    <!-- Offer Section -->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="cizeal.jpg" class="offer-img" alt="Cizeal Necklace" width="400px" height="400px">
+                </div>
+                <div class="col-2">
+                    <p>1 Gram Gold Imitation Jewelry</p>
+                    <h1>Cizeal Necklace With Hangings</h1>
+                    <small>The Cizeal chain, an attractive piece of imitation jewelry crafted near Machilipatnam in Andhra Pradesh, features a beautifully coordinated design of chain and hangings, offering an appealing blend of elegance and style.</small><br>
+                    <a href="product-detail-cizeal.html" target="_blank" class="btn">Buy Now &#10140;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial">
+    <div class="small-container">
+      <h2 class="title">Customer Testimonials</h2>
+      <div class="row">
+        <!-- Testimonial 1 -->
+        <div class="col-3">
+          <p>"We treat the customer as god. Sales are good due to low-profit business, and customers are satisfied with us because of the price."</p>
+          <img src="value.webp" alt="Customer Testimonial 1" width="80px" height="80px">
+          <h3>Values and Beliefs</h3>
+        </div>
+  
+        <!-- Testimonial 2 -->
+        <div class="col-3">
+          <p>"Creating detailed user profiles, enabling secure messaging, and implementing reviews/ratings build trust. Secure payment gateways and strong customer support ensure smooth transactions."</p>
+          <img src="build.jpeg" alt="Customer Testimonial 2" width="80px" height="80px">
+          <h3>Build a Connection</h3>
+        </div>
+  
+        <!-- Testimonial 3 -->
+        <div class="col-3">
+          <p>"We provide a visually appealing section with high-quality images and brief descriptions for each certification and award, showcasing our credibility."</p>
+          <img src="certified.jpeg" alt="Customer Testimonial 3" width="80px" height="80px">
+          <h3>Certifications and Awards</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Brands Section -->
+    <div class="small-container">
+        <h2 class="title">Brands</h2>
+        <div class="row">
+          <div class="col-4">
+            <a href="gi.png" target="_blank"><img src="gi.png" alt="Brand 1" width="150px" height="150px"></a>  
+          </div>
+          <div class="col-4">
+            <a href="" target="_blank"><img src="kondapalli gi.webp" alt="Brand 2" width="150px" height="150px"></a>
+          </div>
+          <div class="col-4">
+            <a href="" target="_blank"><img src="gi eluru.webp" alt="Brand 3" width="150px" height="150px"></a>
+          </div>
+          <div class="col-4">
+            <a href="" target="_blank"><img src="bandar gi.jpeg" alt="Brand 4" width="150px" height="150px"></a>
+          </div>
+          <!-- Add more brands as needed -->
+        </div>
+      </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container-f">
+            <div class="copyright text-center">
+                <h5>&copy; 2024 Regional Treasures Uniting Buyers & Sellers. All rights reserved.</h5>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Toggle Menus -->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+        var MenuItem = document.getElementById("inneritems");
+
+        function menutoggle() {
+            MenuItems.style.maxHeight = MenuItems.style.maxHeight === "0px" ? "200px" : "0px";
+        }
+
+        function menutoggl() {
+            MenuItem.style.display = MenuItem.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

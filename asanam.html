@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>product-details-sound</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="home.html"> <img src="logo.jpg" width="50px" /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown" onclick="menutoggl()"><a class="active">Products
+              <i class="fas fa-caret-down"></i>
+            </a>
+              <ul id="inneritems">
+                <li><a href="sweets-product.html">Bandar sweets</a></li>
+                <li><a href="saree-product.html"> Kalamkari Sarees</a></li>
+                <li><a href="seasonal-product.html">Mangoes</a></li>
+                <li><a href="1gram-product.html">1gram jewellary</a></li>
+                <li><a href="Carpets-product.html">Carpets</a></li>
+                <li><a href="toys-product.html"> Kondapalli Toys</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">Sellers & shop Info</a></li>
+          </ul>
+        </nav>
+        <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 24px;"></i></a>
+        <img src="menu1.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+    </div>
+
+    <!-- ---------single product details-------- -->
+    <div class="small-container single-product">
+      <div class="row">
+        <div class="col-2">
+          <img src="asanam.jpg" width="100%" id="productImg">
+        </div>
+
+        <div class="col-2">
+          <p>Home / Carpets</p>
+          <h1>Asanam Carpet</h1>
+          <h4>1500/rs</h4>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4 stars out of 5</p><br>
+          <ul>
+            <p><b>About this item</b><br>
+              The "Asanam Carpet" is a traditional floor covering known for its intricate design, perfect for adding a touch of elegance and comfort to your space.
+            </p>
+            <li>&#9679; Handwoven design ideal for prayer and relaxation areas.</li>
+            <li>&#9679; Made with durable materials to ensure lasting quality.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------footer------ -->
+   
+    <!-- -------js for toggle menu----- -->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      var MenuItem = document.getElementById("inneritems");
+      MenuItems.style.maxHeight = "0px";
+
+      function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+          MenuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+
+      function menutoggl(){
+        if(MenuItem.style.display == "block")
+        {
+          MenuItem.style.display = "none";
+        }
+        else
+        {
+          MenuItem.style.display = "block";
+        }
+      }
+    </script>
+
+  </body>
+</html>

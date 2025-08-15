@@ -1,0 +1,98 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+.logo-title {
+  display: flex;          /* Aligns children (image and h1) in a row */
+  align-items: center;    /* Vertically centers the items */
+  gap: 10px;              /* Adds space between the image and text */
+}
+
+.logo-title img {
+  
+  max-width: 50px;        /* Adjust the image size */
+  height: auto;           /* Keep the image aspect ratio */
+}
+
+.logo-title h1 {
+  font-size: 20px;        /* Adjust the font size */
+  margin: 0;              /* Remove default margin around h1 */
+}
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.link-container {
+  margin-top: 20px;
+}
+
+.link {
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+/* Form Container */
+.form-container {
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}

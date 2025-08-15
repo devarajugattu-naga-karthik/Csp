@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Details - Designed Door Mat Carpet</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="home.html"> <img src="logo.jpg" width="50px" /></a>
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown" onclick="menutoggl()"><a class="active">Products
+              <i class="fas fa-caret-down"></i>
+            </a>
+              <ul id="inneritems">
+                <li><a href="sweets-product.html">Bandar sweets</a></li>
+                <li><a href="saree-product.html"> Kalamkari Sarees</a></li>
+                <li><a href="seasonal-product.html">Mangoes</a></li>
+                <li><a href="1gram-product.html">1gram jewelry</a></li>
+                <li><a href="Carpets-product.html">Carpets</a></li>
+                <li><a href="toys-product.html"> Kondapalli Toys</a></li>
+              </ul>
+            </li>
+            <li><a href="about.html">Sellers & Shop Info</a></li>
+           
+          </ul>
+        </nav>
+        <a href="cart.html"><i class="fas fa-shopping-cart" style="font-size:24px;"></i></a>
+        <img src="menu1.png" class="menu-icon" onclick="menutoggle()">
+      </div>
+    </div>
+
+    <!-- ---------single product details-------- -->
+    <div class="small-container single-product">
+      <div class="row">
+        <div class="col-2">
+          <img src="carpet.jpeg" width="100%" id="productImg">
+        </div>
+
+        <div class="col-2">
+          <p>Home / carpets</p>
+          <h1>Designed Door Mat Carpet</h1>
+          <h4>450/rs</h4>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4 stars out of 5</p><br>
+          <ul>
+            <p><b>About this item</b><br>
+              The Designed Door Mat Carpet features unique, hand-crafted designs that will brighten up any entryway or living space. Made from durable, high-quality materials, this mat provides both aesthetic appeal and functionality.
+            </p>
+            <li>&#9679; Perfect for the entrance or any room in the house.</li>
+            <li>&#9679; Crafted with strong and eco-friendly fibers for durability.</li>
+            <li>&#9679; Adds a vibrant touch to your home decor with artistic designs.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- -------footer------ -->
+   
+    <!-- -------js for toggle menu----- -->
+    <script>
+      var MenuItems = document.getElementById("MenuItems");
+      var MenuItem = document.getElementById("inneritems");
+      MenuItems.style.maxHeight = "0px";
+
+      function menutoggle(){
+        if(MenuItems.style.maxHeight == "0px")
+        {
+          MenuItems.style.maxHeight = "200px";
+        }
+        else
+        {
+          MenuItems.style.maxHeight = "0px";
+        }
+      }
+
+      function menutoggl(){
+        if(MenuItem.style.display == "block")
+        {
+          MenuItem.style.display = "none";
+        }
+        else
+        {
+          MenuItem.style.display = "block";
+        }
+      }
+    </script>
+
+  </body>
+</html>
